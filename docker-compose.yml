@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  jakebladt.assignmentapi:
+    image: jakebladt.assignmentapi
+    build:
+      context: ./JakeBladt.AssignmentAPI
+      dockerfile: Dockerfile
