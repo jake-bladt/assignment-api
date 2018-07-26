@@ -20,6 +20,19 @@ namespace JakeBladt.AssignmentAPI.Controllers
             _context = context;
         }
 
+        /**
+         * @api {get} /assignments/?tag=:tag
+         * @apiNmae GetAssignmentsByTag
+         * @apiGroup Assignment
+         * 
+         * @apiParam {String} tag Tag on assignment
+         * 
+         * @apiSuccess {String} name Name of the assignment.
+         * @apiSuccess {String} title Title of the assignment.
+         * @apiSuccess {String} description Description of the assignment.
+         * @apiSuccess {String} type Type of the assignment.
+         * @apiSuccess {[String]} tags Tags on the assignment.
+        */
         [HttpGet]
         public IActionResult Get(string tag)
         {
@@ -39,6 +52,19 @@ namespace JakeBladt.AssignmentAPI.Controllers
 
         }
 
+        /**
+         * @api {get} /assignments/:id
+         * @apiNmae GetAssignmentById
+         * @apiGroup Assignment
+         * 
+         * @apiParam {Number} id ID of the assignment
+         * 
+         * @apiSuccess {String} name Name of the assignment.
+         * @apiSuccess {String} title Title of the assignment.
+         * @apiSuccess {String} description Description of the assignment.
+         * @apiSuccess {String} type Type of the assignment.
+         * @apiSuccess {[String]} tags Tags on the assignment.
+        */
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -54,6 +80,19 @@ namespace JakeBladt.AssignmentAPI.Controllers
             }
         }
 
+        /**
+         * @api {post} /assignments/
+         * @apiNmae CreateAssignment
+         * @apiGroup Assignment
+         * 
+         * @apiParam {String} name Name of the assignment.
+         * @apiParam {String} title Title of the assignment.
+         * @apiParam {String} description Description of the assignment.
+         * @apiParam {String} type Type of the assignment.
+         * @apiParam {[String]} tags Tags on the assignment.
+         * 
+         * @apiSuccees {String} id ID of the assignment
+        */
         [HttpPost]
         public IActionResult Post(string name, string assignmentType, string title, string description, string duration, string tags)
         {
